@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.model.Role;
+import com.example.demo.model.Perfil;
 import com.example.demo.model.Usuario;
 import com.example.demo.repository.RoleRepository;
 import com.example.demo.repository.UsuarioRepository;
@@ -100,17 +100,17 @@ public class AuthController {
         user.setUsername(authRequest.username);
         user.setPassword(passwordEncoder.encode(authRequest.password));
 
-        // Definindo a role padrão como ROLE_USER
-        Role roleUser = roleRepository.findByAuthority("ROLE_USER");
-        if (roleUser == null) {
-            roleUser = new Role();
-            roleUser.setAuthority("ROLE_USER");
-            roleRepository.save(roleUser);
+        // Definindo a role padrão como CLIENTE
+        Perfil cliente = roleRepository.findByAuthority("CLIENTE");
+        if (cliente == null) {
+            cliente = new Perfil();
+            cliente.setAuthority("CLIENTE");
+            roleRepository.save(cliente);
         }
 
-        HashSet<Role> roles = new HashSet<>();
-        roles.add(roleUser);
-        user.setRoles(roles);
+        HashSet<Perfil> perfis = new HashSet<>();
+        perfis.add(cliente);
+        user.setPerfis(perfis);
 
         usuarioRepository.save(user);
 
@@ -118,7 +118,7 @@ public class AuthController {
     }
     
     @PostMapping("/register-admin")
-    //@PreAuthorize("hasRole('ROLE_ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> registerAdmin(@RequestBody @Validated AuthRequest authRequest) {
         if (usuarioRepository.findByUsername(authRequest.username).isPresent()) {
             return ResponseEntity.badRequest().body("Nome de usuário já existe");
@@ -128,17 +128,17 @@ public class AuthController {
         user.setUsername(authRequest.username);
         user.setPassword(passwordEncoder.encode(authRequest.password));
 
-        // Atribuindo a role ROLE_ADMIN
-        Role roleAdmin = roleRepository.findByAuthority("ROLE_ADMIN");
-        if (roleAdmin == null) {
-            roleAdmin = new Role();
-            roleAdmin.setAuthority("ROLE_ADMIN");
-            roleRepository.save(roleAdmin);
+        // Atribuindo a role ADMIN
+        Perfil admin = roleRepository.findByAuthority("ADMIN");
+        if (admin == null) {
+            admin = new Perfil();
+            admin.setAuthority("ADMIN");
+            roleRepository.save(admin);
         }
 
-        HashSet<Role> roles = new HashSet<>();
-        roles.add(roleAdmin);
-        user.setRoles(roles);
+        HashSet<Perfil> perfils = new HashSet<>();
+        perfils.add(admin);
+        user.setPerfis(perfils);
 
         usuarioRepository.save(user);
 

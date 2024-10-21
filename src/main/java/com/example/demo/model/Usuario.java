@@ -32,16 +32,16 @@ public class Usuario implements UserDetails {
 
 	private String password;
 
-	// Mapeamento das roles (perfis) do usuário
+	// Mapeamento dos perfis do usuário
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "tb_usuario_roles", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-	private Set<Role> roles = new HashSet<>();
+	@JoinTable(name = "tb_usuario_perfil", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "perfil_id"))
+	private Set<Perfil> perfis = new HashSet<>();
 
 	// Implementação dos métodos da interface UserDetails
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return roles;
+		return perfis;
 	}
 
 	// Retorna a senha do usuário
@@ -88,12 +88,12 @@ public class Usuario implements UserDetails {
 		this.id = id;
 	}
 
-	public Set<Role> getRoles() {
-		return roles;
+	public Set<Perfil> getPerfis() {
+		return perfis;
 	}
 
-	public void setRoles(Set<Role> roles) {
-		this.roles = roles;
+	public void setPerfis(Set<Perfil> perfis) {
+		this.perfis = perfis;
 	}
 
 	public void setPassword(String password) {

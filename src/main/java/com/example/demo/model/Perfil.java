@@ -4,12 +4,12 @@ import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 
 @Entity
-@Table(name = "tb_role")
-public class Role implements GrantedAuthority {
+@Table(name = "tb_perfil")
+public class Perfil implements GrantedAuthority {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "pk_role")
+    @Column(name = "pk_perfil")
     private Long id;
 
     private String authority;
