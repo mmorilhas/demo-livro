@@ -30,20 +30,20 @@ public class LivroController {
 	}
 
 	@GetMapping("/listar")
-	@PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
+	@PreAuthorize("hasAnyAuthority('CLIENTE', 'ADMIN')")
 	public ResponseEntity<List<Livro>> listarTodos() {
 
 		return ResponseEntity.status(HttpStatus.OK).body(service.listarTodos());
 	}
 
 	@GetMapping("/buscar/{id}")
-	@PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
+	@PreAuthorize("hasAnyAuthority('CLIENTE', 'ADMIN')")
 	public ResponseEntity<Livro> buscarPorId(@PathVariable Long id) {
 		return ResponseEntity.ok(service.buscarPorId(id));
 	}
 
 	@PostMapping("/cadastrar")
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@PreAuthorize("hasAuthority('ADMIN')")
 	public ResponseEntity<Livro> cadastrar(@RequestBody Livro livro) {
 
 		service.salvar(livro);
@@ -52,14 +52,14 @@ public class LivroController {
 	}
 
 	@PutMapping("/atualizar/{id}")
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@PreAuthorize("hasAuthority('ADMIN')")
 	public ResponseEntity<Livro> atualizar(@PathVariable Long id, @RequestBody Livro livro) {
 
 		return ResponseEntity.ok(service.atualizar(id, livro));
 	}
 
 	@DeleteMapping("/deletar/{id}")
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@PreAuthorize("hasAuthority('ADMIN')")
 	public ResponseEntity<Void> deletar(@PathVariable Long id) {
 
 		service.deletarPorId(id);

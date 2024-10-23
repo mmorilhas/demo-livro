@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.Perfil;
 import com.example.demo.model.Usuario;
-import com.example.demo.repository.RoleRepository;
+import com.example.demo.repository.PerfilRepository;
 import com.example.demo.repository.UsuarioRepository;
 import com.example.demo.security.JwtTokenUtil;
 
@@ -33,7 +33,7 @@ public class AuthController {
 
     private final UsuarioRepository usuarioRepository;
 
-    private final RoleRepository roleRepository;
+    private final PerfilRepository perfilRepository;
 
     private final PasswordEncoder passwordEncoder;
 
@@ -43,13 +43,13 @@ public class AuthController {
     public AuthController(
             AuthenticationManager authenticationManager,
             UsuarioRepository usuarioRepository,
-            RoleRepository roleRepository,
+            PerfilRepository perfilRepository,
             PasswordEncoder passwordEncoder,
             JwtTokenUtil jwtTokenUtil
     ) {
         this.authenticationManager = authenticationManager;
         this.usuarioRepository = usuarioRepository;
-        this.roleRepository = roleRepository;
+        this.perfilRepository = perfilRepository;
         this.passwordEncoder = passwordEncoder;
         this.jwtTokenUtil = jwtTokenUtil;
     }
@@ -100,25 +100,23 @@ public class AuthController {
         user.setUsername(authRequest.username);
         user.setPassword(passwordEncoder.encode(authRequest.password));
 
-        // Definindo a role padrão como CLIENTE
-        Perfil cliente = roleRepository.findByAuthority("CLIENTE");
+        // Definindo o perfil como CLIENTE
+        Perfil cliente = perfilRepository.findByAuthority("CLIENTE");
         if (cliente == null) {
             cliente = new Perfil();
             cliente.setAuthority("CLIENTE");
-            roleRepository.save(cliente);
+            perfilRepository.save(cliente);
         }
 
-        HashSet<Perfil> perfis = new HashSet<>();
-        perfis.add(cliente);
-        user.setPerfis(perfis);
+        user.setPerfil(cliente);
 
         usuarioRepository.save(user);
 
-        return ResponseEntity.ok("Usuário registrado com sucesso");
+        return ResponseEntity.ok("Usuário registrado com sucesso:");
     }
     
     @PostMapping("/register-admin")
-    //@PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<?> registerAdmin(@RequestBody @Validated AuthRequest authRequest) {
         if (usuarioRepository.findByUsername(authRequest.username).isPresent()) {
             return ResponseEntity.badRequest().body("Nome de usuário já existe");
@@ -128,17 +126,15 @@ public class AuthController {
         user.setUsername(authRequest.username);
         user.setPassword(passwordEncoder.encode(authRequest.password));
 
-        // Atribuindo a role ADMIN
-        Perfil admin = roleRepository.findByAuthority("ADMIN");
+        // Atribuindo o perfil ADMIN
+        Perfil admin = perfilRepository.findByAuthority("ADMIN");
         if (admin == null) {
             admin = new Perfil();
             admin.setAuthority("ADMIN");
-            roleRepository.save(admin);
+            perfilRepository.save(admin);
         }
 
-        HashSet<Perfil> perfils = new HashSet<>();
-        perfils.add(admin);
-        user.setPerfis(perfils);
+        user.setPerfil(admin);
 
         usuarioRepository.save(user);
 

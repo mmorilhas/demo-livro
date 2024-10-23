@@ -1,0 +1,18 @@
+type Query {
+	listaLivros: [Livro] #retorna uma lista de livros
+	buscarLivro(id: ID!):  Livro #busca um livro pelo id
+}
+
+
+type Mutation {
+    adicionarLivro(titulo: String!, autor: String!, publicacao: String!): Livro # Adiciona um livro
+    atualizarLivro(id: ID!, titulo: String, autor: String, publicacao: String): Livro # Atualiza um livro
+    removerLivro(id: ID!): Boolean # Remove um livro
+};
+
+type Livro {	
+	id: ID
+	titulo: String
+	autor: String
+	publicacao: String
+}

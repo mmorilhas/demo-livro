@@ -1,8 +1,7 @@
 package com.example.demo.model;
 
 import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Collections;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,8 +13,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -33,15 +31,15 @@ public class Usuario implements UserDetails {
 	private String password;
 
 	// Mapeamento dos perfis do usuário
-	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "tb_usuario_perfil", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "perfil_id"))
-	private Set<Perfil> perfis = new HashSet<>();
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "perfil_id")
+	private Perfil perfil;
 
+	
 	// Implementação dos métodos da interface UserDetails
-
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return perfis;
+		return Collections.singleton(perfil);
 	}
 
 	// Retorna a senha do usuário
@@ -88,12 +86,12 @@ public class Usuario implements UserDetails {
 		this.id = id;
 	}
 
-	public Set<Perfil> getPerfis() {
-		return perfis;
+	public Perfil getPerfil() {
+		return perfil;
 	}
 
-	public void setPerfis(Set<Perfil> perfis) {
-		this.perfis = perfis;
+	public void setPerfil(Perfil perfil) {
+		this.perfil = perfil;
 	}
 
 	public void setPassword(String password) {
