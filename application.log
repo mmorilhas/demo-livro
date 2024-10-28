@@ -1,332 +1,168 @@
-2024-10-23 11:01:52 [main] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 21.0.2 with PID 16768 (C:\dev\workspace\eclipse-2024\demo\target\classes started by Magna in C:\dev\workspace\eclipse-2024\demo)
-2024-10-23 11:01:52 [main] DEBUG com.example.demo.DemoApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
-2024-10-23 11:01:52 [main] INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
-2024-10-23 11:01:54 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2024-10-23 11:01:54 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
-2024-10-23 11:01:54 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2024-10-23 11:01:55 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-10-23 11:01:55 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
-2024-10-23 11:01:55 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2024-10-23 11:01:55 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2024-10-23 11:01:55 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4070ace9
-2024-10-23 11:01:55 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2024-10-23 11:01:56 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-10-23 11:01:57 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Warning Code: 0, SQLState: 00000
-2024-10-23 11:01:57 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - constraint "ukplh3sd5xqp709wamcutkiq85m" of relation "tb_usuario" does not exist, skipping
-2024-10-23 11:01:57 [main] DEBUG c.e.d.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2024-10-23 11:01:57 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-10-23 11:01:58 [main] INFO  com.example.demo.DemoApplication - Started DemoApplication in 6.304 seconds (process running for 6.764)
-2024-10-23 11:03:08 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-10-23 11:03:09 [http-nio-8080-exec-2] ERROR c.e.d.s.JwtAuthenticationFilter - Não foi possível obter o username do token
-io.jsonwebtoken.ExpiredJwtException: JWT expired at 2024-10-22T16:37:35Z. Current time: 2024-10-23T14:03:09Z, a difference of 77134044 milliseconds.  Allowed clock skew: 0 milliseconds.
-	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:427)
-	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:529)
-	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:589)
-	at io.jsonwebtoken.impl.ImmutableJwtParser.parseClaimsJws(ImmutableJwtParser.java:173)
-	at com.example.demo.security.JwtTokenUtil.getAllClaimsFromToken(JwtTokenUtil.java:72)
-	at com.example.demo.security.JwtTokenUtil.getClaimFromToken(JwtTokenUtil.java:64)
-	at com.example.demo.security.JwtTokenUtil.getUsernameFromToken(JwtTokenUtil.java:46)
-	at com.example.demo.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:49)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
-	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
-	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
-	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
-	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
-	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230)
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-2024-10-23 11:03:28 [http-nio-8080-exec-3] WARN  c.e.d.s.JwtAuthenticationFilter - Cabeçalho Authorization não encontrado ou não começa com Bearer
-2024-10-23 11:03:28 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.controller.AuthController.register() com argumento[s] = [com.example.demo.controller.AuthController$AuthRequest@5d6b8b92]
-2024-10-23 11:03:28 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.repository.UsuarioRepository.findByUsername() com argumento[s] = [usuario]
-2024-10-23 11:03:28 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.repository.UsuarioRepository.findByUsername() com resultado = Optional.empty
-2024-10-23 11:03:28 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.repository.PerfilRepository.findByAuthority() com argumento[s] = [CLIENTE]
-2024-10-23 11:03:28 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.repository.PerfilRepository.findByAuthority() com resultado = null
-2024-10-23 11:03:28 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: org.springframework.data.repository.CrudRepository.save() com argumento[s] = [com.example.demo.model.Perfil@717a0e19]
-2024-10-23 11:03:28 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: org.springframework.data.repository.CrudRepository.save() com resultado = com.example.demo.model.Perfil@717a0e19
-2024-10-23 11:03:28 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: org.springframework.data.repository.CrudRepository.save() com argumento[s] = [com.example.demo.model.Usuario@2aa66469]
-2024-10-23 11:03:28 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: org.springframework.data.repository.CrudRepository.save() com resultado = com.example.demo.model.Usuario@2aa66469
-2024-10-23 11:03:28 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.controller.AuthController.register() com resultado = <200 OK OK,Usuário registrado com sucesso,[]>
-2024-10-23 11:03:39 [http-nio-8080-exec-4] WARN  c.e.d.s.JwtAuthenticationFilter - Cabeçalho Authorization não encontrado ou não começa com Bearer
-2024-10-23 11:03:39 [http-nio-8080-exec-4] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.controller.AuthController.registerAdmin() com argumento[s] = [com.example.demo.controller.AuthController$AuthRequest@42792da1]
-2024-10-23 11:03:39 [http-nio-8080-exec-4] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.repository.UsuarioRepository.findByUsername() com argumento[s] = [admin]
-2024-10-23 11:03:39 [http-nio-8080-exec-4] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.repository.UsuarioRepository.findByUsername() com resultado = Optional.empty
-2024-10-23 11:03:39 [http-nio-8080-exec-4] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.repository.PerfilRepository.findByAuthority() com argumento[s] = [ADMIN]
-2024-10-23 11:03:39 [http-nio-8080-exec-4] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.repository.PerfilRepository.findByAuthority() com resultado = null
-2024-10-23 11:03:39 [http-nio-8080-exec-4] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: org.springframework.data.repository.CrudRepository.save() com argumento[s] = [com.example.demo.model.Perfil@69e2a7e7]
-2024-10-23 11:03:39 [http-nio-8080-exec-4] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: org.springframework.data.repository.CrudRepository.save() com resultado = com.example.demo.model.Perfil@69e2a7e7
-2024-10-23 11:03:39 [http-nio-8080-exec-4] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: org.springframework.data.repository.CrudRepository.save() com argumento[s] = [com.example.demo.model.Usuario@490ca157]
-2024-10-23 11:03:39 [http-nio-8080-exec-4] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: org.springframework.data.repository.CrudRepository.save() com resultado = com.example.demo.model.Usuario@490ca157
-2024-10-23 11:03:39 [http-nio-8080-exec-4] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.controller.AuthController.registerAdmin() com resultado = <200 OK OK,Usuário administrador registrado com sucesso,[]>
-2024-10-23 11:03:54 [http-nio-8080-exec-5] WARN  c.e.d.s.JwtAuthenticationFilter - Cabeçalho Authorization não encontrado ou não começa com Bearer
-2024-10-23 11:03:54 [http-nio-8080-exec-5] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.controller.AuthController.login() com argumento[s] = [com.example.demo.controller.AuthController$AuthRequest@6ac476b8]
-2024-10-23 11:03:54 [http-nio-8080-exec-5] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.service.CustomUserDetailsService.loadUserByUsername() com argumento[s] = [usuario]
-2024-10-23 11:03:54 [http-nio-8080-exec-5] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.repository.UsuarioRepository.findByUsername() com argumento[s] = [usuario]
-2024-10-23 11:03:54 [http-nio-8080-exec-5] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.repository.UsuarioRepository.findByUsername() com resultado = Optional[com.example.demo.model.Usuario@7c5782c8]
-2024-10-23 11:03:54 [http-nio-8080-exec-5] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.service.CustomUserDetailsService.loadUserByUsername() com resultado = com.example.demo.model.Usuario@7c5782c8
-2024-10-23 11:03:54 [http-nio-8080-exec-5] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.repository.UsuarioRepository.findByUsername() com argumento[s] = [usuario]
-2024-10-23 11:03:54 [http-nio-8080-exec-5] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.repository.UsuarioRepository.findByUsername() com resultado = Optional[com.example.demo.model.Usuario@7c5782c8]
-2024-10-23 11:03:54 [http-nio-8080-exec-5] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.controller.AuthController.login() com resultado = <200 OK OK,com.example.demo.controller.AuthController$AuthResponse@166a49ae,[]>
-2024-10-23 11:04:05 [http-nio-8080-exec-6] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.service.CustomUserDetailsService.loadUserByUsername() com argumento[s] = [usuario]
-2024-10-23 11:04:05 [http-nio-8080-exec-6] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.repository.UsuarioRepository.findByUsername() com argumento[s] = [usuario]
-2024-10-23 11:04:05 [http-nio-8080-exec-6] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.repository.UsuarioRepository.findByUsername() com resultado = Optional[com.example.demo.model.Usuario@3920c4fa]
-2024-10-23 11:04:05 [http-nio-8080-exec-6] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.service.CustomUserDetailsService.loadUserByUsername() com resultado = com.example.demo.model.Usuario@3920c4fa
-2024-10-23 11:04:05 [http-nio-8080-exec-6] INFO  c.e.d.s.JwtAuthenticationFilter - Usuário autenticado: usuario
-2024-10-23 11:04:05 [http-nio-8080-exec-6] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.controller.LivroController.listarTodos() com argumento[s] = []
-2024-10-23 11:04:05 [http-nio-8080-exec-6] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.service.LivroService.listarTodos() com argumento[s] = []
-2024-10-23 11:04:05 [http-nio-8080-exec-6] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: org.springframework.data.repository.ListCrudRepository.findAll() com argumento[s] = []
-2024-10-23 11:04:05 [http-nio-8080-exec-6] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: org.springframework.data.repository.ListCrudRepository.findAll() com resultado = []
-2024-10-23 11:04:05 [http-nio-8080-exec-6] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.service.LivroService.listarTodos() com resultado = []
-2024-10-23 11:04:05 [http-nio-8080-exec-6] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.controller.LivroController.listarTodos() com resultado = <200 OK OK,[],[]>
-2024-10-23 11:04:18 [http-nio-8080-exec-7] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.service.CustomUserDetailsService.loadUserByUsername() com argumento[s] = [usuario]
-2024-10-23 11:04:18 [http-nio-8080-exec-7] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.repository.UsuarioRepository.findByUsername() com argumento[s] = [usuario]
-2024-10-23 11:04:18 [http-nio-8080-exec-7] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.repository.UsuarioRepository.findByUsername() com resultado = Optional[com.example.demo.model.Usuario@41b1410d]
-2024-10-23 11:04:18 [http-nio-8080-exec-7] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.service.CustomUserDetailsService.loadUserByUsername() com resultado = com.example.demo.model.Usuario@41b1410d
-2024-10-23 11:04:18 [http-nio-8080-exec-7] INFO  c.e.d.s.JwtAuthenticationFilter - Usuário autenticado: usuario
-2024-10-23 11:04:30 [http-nio-8080-exec-8] WARN  c.e.d.s.JwtAuthenticationFilter - Cabeçalho Authorization não encontrado ou não começa com Bearer
-2024-10-23 11:04:30 [http-nio-8080-exec-8] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.controller.AuthController.login() com argumento[s] = [com.example.demo.controller.AuthController$AuthRequest@25e6d5c2]
-2024-10-23 11:04:30 [http-nio-8080-exec-8] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.service.CustomUserDetailsService.loadUserByUsername() com argumento[s] = [admin]
-2024-10-23 11:04:30 [http-nio-8080-exec-8] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.repository.UsuarioRepository.findByUsername() com argumento[s] = [admin]
-2024-10-23 11:04:30 [http-nio-8080-exec-8] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.repository.UsuarioRepository.findByUsername() com resultado = Optional[com.example.demo.model.Usuario@70792357]
-2024-10-23 11:04:30 [http-nio-8080-exec-8] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.service.CustomUserDetailsService.loadUserByUsername() com resultado = com.example.demo.model.Usuario@70792357
-2024-10-23 11:04:30 [http-nio-8080-exec-8] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.repository.UsuarioRepository.findByUsername() com argumento[s] = [admin]
-2024-10-23 11:04:30 [http-nio-8080-exec-8] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.repository.UsuarioRepository.findByUsername() com resultado = Optional[com.example.demo.model.Usuario@70792357]
-2024-10-23 11:04:30 [http-nio-8080-exec-8] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.controller.AuthController.login() com resultado = <200 OK OK,com.example.demo.controller.AuthController$AuthResponse@d6f06c1,[]>
-2024-10-23 11:05:06 [http-nio-8080-exec-9] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.service.CustomUserDetailsService.loadUserByUsername() com argumento[s] = [admin]
-2024-10-23 11:05:06 [http-nio-8080-exec-9] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.repository.UsuarioRepository.findByUsername() com argumento[s] = [admin]
-2024-10-23 11:05:06 [http-nio-8080-exec-9] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.repository.UsuarioRepository.findByUsername() com resultado = Optional[com.example.demo.model.Usuario@1ef8bf5a]
-2024-10-23 11:05:06 [http-nio-8080-exec-9] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.service.CustomUserDetailsService.loadUserByUsername() com resultado = com.example.demo.model.Usuario@1ef8bf5a
-2024-10-23 11:05:06 [http-nio-8080-exec-9] INFO  c.e.d.s.JwtAuthenticationFilter - Usuário autenticado: admin
-2024-10-23 11:05:06 [http-nio-8080-exec-9] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.controller.LivroController.cadastrar() com argumento[s] = [com.example.demo.model.Livro@698d4b77]
-2024-10-23 11:05:06 [http-nio-8080-exec-9] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.service.LivroService.salvar() com argumento[s] = [com.example.demo.model.Livro@698d4b77]
-2024-10-23 11:05:06 [http-nio-8080-exec-9] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: org.springframework.data.repository.CrudRepository.save() com argumento[s] = [com.example.demo.model.Livro@698d4b77]
-2024-10-23 11:05:06 [http-nio-8080-exec-9] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: org.springframework.data.repository.CrudRepository.save() com resultado = com.example.demo.model.Livro@698d4b77
-2024-10-23 11:05:06 [http-nio-8080-exec-9] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.service.LivroService.salvar() com resultado = com.example.demo.model.Livro@698d4b77
-2024-10-23 11:05:06 [http-nio-8080-exec-9] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.controller.LivroController.cadastrar() com resultado = <201 CREATED Created,[]>
-2024-10-23 11:05:16 [http-nio-8080-exec-10] WARN  c.e.d.s.JwtAuthenticationFilter - Cabeçalho Authorization não encontrado ou não começa com Bearer
-2024-10-23 11:05:16 [http-nio-8080-exec-10] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.controller.AuthController.login() com argumento[s] = [com.example.demo.controller.AuthController$AuthRequest@165ebe9c]
-2024-10-23 11:05:16 [http-nio-8080-exec-10] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.service.CustomUserDetailsService.loadUserByUsername() com argumento[s] = [usuario]
-2024-10-23 11:05:16 [http-nio-8080-exec-10] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.repository.UsuarioRepository.findByUsername() com argumento[s] = [usuario]
-2024-10-23 11:05:16 [http-nio-8080-exec-10] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.repository.UsuarioRepository.findByUsername() com resultado = Optional[com.example.demo.model.Usuario@3c7c3a56]
-2024-10-23 11:05:16 [http-nio-8080-exec-10] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.service.CustomUserDetailsService.loadUserByUsername() com resultado = com.example.demo.model.Usuario@3c7c3a56
-2024-10-23 11:05:16 [http-nio-8080-exec-10] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.repository.UsuarioRepository.findByUsername() com argumento[s] = [usuario]
-2024-10-23 11:05:16 [http-nio-8080-exec-10] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.repository.UsuarioRepository.findByUsername() com resultado = Optional[com.example.demo.model.Usuario@3c7c3a56]
-2024-10-23 11:05:16 [http-nio-8080-exec-10] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.controller.AuthController.login() com resultado = <200 OK OK,com.example.demo.controller.AuthController$AuthResponse@46ff8ebf,[]>
-2024-10-23 11:05:33 [http-nio-8080-exec-1] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.service.CustomUserDetailsService.loadUserByUsername() com argumento[s] = [usuario]
-2024-10-23 11:05:33 [http-nio-8080-exec-1] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.repository.UsuarioRepository.findByUsername() com argumento[s] = [usuario]
-2024-10-23 11:05:33 [http-nio-8080-exec-1] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.repository.UsuarioRepository.findByUsername() com resultado = Optional[com.example.demo.model.Usuario@58557b18]
-2024-10-23 11:05:33 [http-nio-8080-exec-1] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.service.CustomUserDetailsService.loadUserByUsername() com resultado = com.example.demo.model.Usuario@58557b18
-2024-10-23 11:05:33 [http-nio-8080-exec-1] INFO  c.e.d.s.JwtAuthenticationFilter - Usuário autenticado: usuario
-2024-10-23 11:05:51 [http-nio-8080-exec-2] ERROR c.e.d.s.JwtAuthenticationFilter - Não foi possível obter o username do token
-io.jsonwebtoken.ExpiredJwtException: JWT expired at 2024-10-22T16:37:35Z. Current time: 2024-10-23T14:05:51Z, a difference of 77296414 milliseconds.  Allowed clock skew: 0 milliseconds.
-	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:427)
-	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:529)
-	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:589)
-	at io.jsonwebtoken.impl.ImmutableJwtParser.parseClaimsJws(ImmutableJwtParser.java:173)
-	at com.example.demo.security.JwtTokenUtil.getAllClaimsFromToken(JwtTokenUtil.java:72)
-	at com.example.demo.security.JwtTokenUtil.getClaimFromToken(JwtTokenUtil.java:64)
-	at com.example.demo.security.JwtTokenUtil.getUsernameFromToken(JwtTokenUtil.java:46)
-	at com.example.demo.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:49)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
-	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
-	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
-	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
-	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
-	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230)
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-2024-10-23 11:05:55 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.service.CustomUserDetailsService.loadUserByUsername() com argumento[s] = [usuario]
-2024-10-23 11:05:55 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.repository.UsuarioRepository.findByUsername() com argumento[s] = [usuario]
-2024-10-23 11:05:55 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.repository.UsuarioRepository.findByUsername() com resultado = Optional[com.example.demo.model.Usuario@3c32610]
-2024-10-23 11:05:55 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.service.CustomUserDetailsService.loadUserByUsername() com resultado = com.example.demo.model.Usuario@3c32610
-2024-10-23 11:05:55 [http-nio-8080-exec-3] INFO  c.e.d.s.JwtAuthenticationFilter - Usuário autenticado: usuario
-2024-10-23 11:05:55 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.controller.LivroController.buscarPorId() com argumento[s] = [1]
-2024-10-23 11:05:55 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.service.LivroService.buscarPorId() com argumento[s] = [1]
-2024-10-23 11:05:55 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: org.springframework.data.repository.CrudRepository.findById() com argumento[s] = [1]
-2024-10-23 11:05:55 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: org.springframework.data.repository.CrudRepository.findById() com resultado = Optional[com.example.demo.model.Livro@7687f6fd]
-2024-10-23 11:05:55 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.service.LivroService.buscarPorId() com resultado = com.example.demo.model.Livro@7687f6fd
-2024-10-23 11:05:55 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.controller.LivroController.buscarPorId() com resultado = <200 OK OK,com.example.demo.model.Livro@7687f6fd,[]>
-2024-10-23 11:06:01 [http-nio-8080-exec-4] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.service.CustomUserDetailsService.loadUserByUsername() com argumento[s] = [usuario]
-2024-10-23 11:06:01 [http-nio-8080-exec-4] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.repository.UsuarioRepository.findByUsername() com argumento[s] = [usuario]
-2024-10-23 11:06:01 [http-nio-8080-exec-4] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.repository.UsuarioRepository.findByUsername() com resultado = Optional[com.example.demo.model.Usuario@50a2a2c7]
-2024-10-23 11:06:01 [http-nio-8080-exec-4] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.service.CustomUserDetailsService.loadUserByUsername() com resultado = com.example.demo.model.Usuario@50a2a2c7
-2024-10-23 11:06:01 [http-nio-8080-exec-4] INFO  c.e.d.s.JwtAuthenticationFilter - Usuário autenticado: usuario
-2024-10-23 11:06:01 [http-nio-8080-exec-4] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.controller.LivroController.listarTodos() com argumento[s] = []
-2024-10-23 11:06:01 [http-nio-8080-exec-4] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.service.LivroService.listarTodos() com argumento[s] = []
-2024-10-23 11:06:01 [http-nio-8080-exec-4] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: org.springframework.data.repository.ListCrudRepository.findAll() com argumento[s] = []
-2024-10-23 11:06:01 [http-nio-8080-exec-4] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: org.springframework.data.repository.ListCrudRepository.findAll() com resultado = [com.example.demo.model.Livro@78612164]
-2024-10-23 11:06:01 [http-nio-8080-exec-4] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.service.LivroService.listarTodos() com resultado = [com.example.demo.model.Livro@78612164]
-2024-10-23 11:06:01 [http-nio-8080-exec-4] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.controller.LivroController.listarTodos() com resultado = <200 OK OK,[com.example.demo.model.Livro@78612164],[]>
-2024-10-23 11:21:46 [main] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 21.0.2 with PID 13644 (C:\dev\workspace\eclipse-2024\demo\target\classes started by Magna in C:\dev\workspace\eclipse-2024\demo)
-2024-10-23 11:21:46 [main] DEBUG com.example.demo.DemoApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
-2024-10-23 11:21:46 [main] INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
-2024-10-23 11:21:47 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2024-10-23 11:21:47 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
-2024-10-23 11:21:47 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2024-10-23 11:21:48 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-10-23 11:21:48 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
-2024-10-23 11:21:48 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2024-10-23 11:21:48 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2024-10-23 11:21:48 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@60c98f25
-2024-10-23 11:21:48 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2024-10-23 11:21:49 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-10-23 11:21:50 [main] DEBUG c.e.d.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2024-10-23 11:21:50 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-10-23 11:21:51 [main] INFO  com.example.demo.DemoApplication - Started DemoApplication in 5.324 seconds (process running for 5.678)
-2024-10-23 11:21:57 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-10-23 11:21:57 [http-nio-8080-exec-2] WARN  c.e.d.s.JwtAuthenticationFilter - Cabeçalho Authorization não encontrado ou não começa com Bearer
-2024-10-23 11:21:57 [http-nio-8080-exec-2] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.controller.AuthController.register() com argumento[s] = [com.example.demo.controller.AuthController$AuthRequest@243a961a]
-2024-10-23 11:21:57 [http-nio-8080-exec-2] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.repository.UsuarioRepository.findByUsername() com argumento[s] = [usuario]
-2024-10-23 11:21:57 [http-nio-8080-exec-2] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.repository.UsuarioRepository.findByUsername() com resultado = Optional[com.example.demo.model.Usuario@6441ec31]
-2024-10-23 11:21:57 [http-nio-8080-exec-2] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.controller.AuthController.register() com resultado = <400 BAD_REQUEST Bad Request,Nome de usuário já existe,[]>
-2024-10-23 11:22:02 [http-nio-8080-exec-4] WARN  c.e.d.s.JwtAuthenticationFilter - Cabeçalho Authorization não encontrado ou não começa com Bearer
-2024-10-23 11:22:02 [http-nio-8080-exec-4] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.controller.AuthController.register() com argumento[s] = [com.example.demo.controller.AuthController$AuthRequest@118a3aa3]
-2024-10-23 11:22:02 [http-nio-8080-exec-4] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.repository.UsuarioRepository.findByUsername() com argumento[s] = [usuario1]
-2024-10-23 11:22:02 [http-nio-8080-exec-4] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.repository.UsuarioRepository.findByUsername() com resultado = Optional.empty
-2024-10-23 11:22:02 [http-nio-8080-exec-4] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.repository.PerfilRepository.findByAuthority() com argumento[s] = [CLIENTE]
-2024-10-23 11:22:02 [http-nio-8080-exec-4] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.repository.PerfilRepository.findByAuthority() com resultado = com.example.demo.model.Perfil@86065d5
-2024-10-23 11:22:02 [http-nio-8080-exec-4] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: org.springframework.data.repository.CrudRepository.save() com argumento[s] = [com.example.demo.model.Usuario@41727d86]
-2024-10-23 11:22:02 [http-nio-8080-exec-4] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: org.springframework.data.repository.CrudRepository.save() com resultado = com.example.demo.model.Usuario@41727d86
-2024-10-23 11:22:02 [http-nio-8080-exec-4] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.controller.AuthController.register() com resultado = <200 OK OK,Usuário registrado com sucesso:[com.example.demo.model.Perfil@86065d5],[]>
-2024-10-23 11:23:02 [main] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 21.0.2 with PID 5852 (C:\dev\workspace\eclipse-2024\demo\target\classes started by Magna in C:\dev\workspace\eclipse-2024\demo)
-2024-10-23 11:23:02 [main] DEBUG com.example.demo.DemoApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
-2024-10-23 11:23:02 [main] INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
-2024-10-23 11:23:04 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2024-10-23 11:23:04 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
-2024-10-23 11:23:04 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2024-10-23 11:23:04 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-10-23 11:23:04 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
-2024-10-23 11:23:04 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2024-10-23 11:23:05 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2024-10-23 11:23:05 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@46e388ec
-2024-10-23 11:23:05 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2024-10-23 11:23:06 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-10-23 11:23:06 [main] DEBUG c.e.d.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2024-10-23 11:23:07 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-10-23 11:23:07 [main] INFO  com.example.demo.DemoApplication - Started DemoApplication in 5.66 seconds (process running for 6.039)
-2024-10-23 11:23:27 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-10-23 11:23:27 [http-nio-8080-exec-2] WARN  c.e.d.s.JwtAuthenticationFilter - Cabeçalho Authorization não encontrado ou não começa com Bearer
-2024-10-23 11:23:27 [http-nio-8080-exec-2] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.controller.AuthController.register() com argumento[s] = [com.example.demo.controller.AuthController$AuthRequest@2f7fd03]
-2024-10-23 11:23:27 [http-nio-8080-exec-2] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.repository.UsuarioRepository.findByUsername() com argumento[s] = [usuario1]
-2024-10-23 11:23:27 [http-nio-8080-exec-2] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.repository.UsuarioRepository.findByUsername() com resultado = Optional[com.example.demo.model.Usuario@226ae209]
-2024-10-23 11:23:27 [http-nio-8080-exec-2] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.controller.AuthController.register() com resultado = <400 BAD_REQUEST Bad Request,Nome de usuário já existe,[]>
-2024-10-23 11:23:33 [http-nio-8080-exec-4] WARN  c.e.d.s.JwtAuthenticationFilter - Cabeçalho Authorization não encontrado ou não começa com Bearer
-2024-10-23 11:23:33 [http-nio-8080-exec-4] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.controller.AuthController.register() com argumento[s] = [com.example.demo.controller.AuthController$AuthRequest@5f2e59a]
-2024-10-23 11:23:33 [http-nio-8080-exec-4] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.repository.UsuarioRepository.findByUsername() com argumento[s] = [usuario2]
-2024-10-23 11:23:33 [http-nio-8080-exec-4] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.repository.UsuarioRepository.findByUsername() com resultado = Optional.empty
-2024-10-23 11:23:33 [http-nio-8080-exec-4] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.repository.PerfilRepository.findByAuthority() com argumento[s] = [CLIENTE]
-2024-10-23 11:23:33 [http-nio-8080-exec-4] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.repository.PerfilRepository.findByAuthority() com resultado = com.example.demo.model.Perfil@20c62a0e
-2024-10-23 11:23:33 [http-nio-8080-exec-4] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: org.springframework.data.repository.CrudRepository.save() com argumento[s] = [com.example.demo.model.Usuario@15e902d5]
-2024-10-23 11:23:33 [http-nio-8080-exec-4] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: org.springframework.data.repository.CrudRepository.save() com resultado = com.example.demo.model.Usuario@15e902d5
-2024-10-23 11:23:33 [http-nio-8080-exec-4] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.controller.AuthController.register() com resultado = <200 OK OK,Usuário registrado com sucesso:[com.example.demo.model.Perfil@20c62a0e] --- com.example.demo.model.Perfil@20c62a0e,[]>
-2024-10-23 15:34:57 [main] INFO  c.example.demo.DemoApplicationTests - Starting DemoApplicationTests using Java 21.0.2 with PID 5696 (started by Magna in C:\dev\workspace\eclipse-2024\demo)
-2024-10-23 15:34:57 [main] DEBUG c.example.demo.DemoApplicationTests - Running with Spring Boot v3.3.4, Spring v6.1.13
-2024-10-23 15:34:57 [main] INFO  c.example.demo.DemoApplicationTests - No active profile set, falling back to 1 default profile: "default"
-2024-10-23 15:34:59 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-10-23 15:34:59 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
-2024-10-23 15:34:59 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2024-10-23 15:35:00 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2024-10-23 15:35:00 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5b5b53c6
-2024-10-23 15:35:00 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2024-10-23 15:35:01 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-10-23 15:35:02 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-10-23 15:35:03 [main] INFO  c.example.demo.DemoApplicationTests - Started DemoApplicationTests in 5.873 seconds (process running for 7.16)
-2024-10-23 15:35:03 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2024-10-23 15:35:03 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-10-28 00:07:56 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-28 00:07:56 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/login
+2024-10-28 00:07:56 [http-nio-8080-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2024-10-28 00:07:56 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/login
+2024-10-28 00:07:56 [http-nio-8080-exec-2] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.controller.AuthController.login() com argumento[s] = [com.example.demo.controller.AuthController$AuthRequest@62b7d095]
+2024-10-28 00:07:57 [http-nio-8080-exec-2] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.service.CustomUserDetailsService.loadUserByUsername() com argumento[s] = [admin]
+2024-10-28 00:07:57 [http-nio-8080-exec-2] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.repository.UsuarioRepository.findByUsername() com argumento[s] = [admin]
+2024-10-28 00:07:57 [http-nio-8080-exec-2] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.repository.UsuarioRepository.findByUsername() com resultado = Optional[com.example.demo.model.Usuario@267467f5]
+2024-10-28 00:07:57 [http-nio-8080-exec-2] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.service.CustomUserDetailsService.loadUserByUsername() com resultado = com.example.demo.model.Usuario@267467f5
+2024-10-28 00:07:57 [http-nio-8080-exec-2] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2024-10-28 00:07:57 [http-nio-8080-exec-2] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.repository.UsuarioRepository.findByUsername() com argumento[s] = [admin]
+2024-10-28 00:07:57 [http-nio-8080-exec-2] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.repository.UsuarioRepository.findByUsername() com resultado = Optional[com.example.demo.model.Usuario@267467f5]
+2024-10-28 00:07:57 [http-nio-8080-exec-2] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.controller.AuthController.login() com resultado = <200 OK OK,com.example.demo.controller.AuthController$AuthResponse@4f18013d,[]>
+2024-10-28 00:08:08 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /graphiql?path=/graphql
+2024-10-28 00:08:08 [http-nio-8080-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2024-10-28 00:08:08 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /graphiql?path=/graphql
+2024-10-28 00:08:08 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing POST /graphql
+2024-10-28 00:08:08 [http-nio-8080-exec-4] WARN  c.e.d.s.JwtAuthenticationFilter - Cabeçalho Authorization não encontrado ou não começa com Bearer
+2024-10-28 00:08:08 [http-nio-8080-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2024-10-28 00:08:08 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing POST /error
+2024-10-28 00:08:08 [http-nio-8080-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2024-10-28 00:08:09 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /favicon.ico
+2024-10-28 00:08:09 [http-nio-8080-exec-1] WARN  c.e.d.s.JwtAuthenticationFilter - Cabeçalho Authorization não encontrado ou não começa com Bearer
+2024-10-28 00:08:09 [http-nio-8080-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2024-10-28 00:08:09 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2024-10-28 00:08:09 [http-nio-8080-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2024-10-28 00:08:32 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing POST /graphql
+2024-10-28 00:08:32 [http-nio-8080-exec-3] WARN  c.e.d.s.JwtAuthenticationFilter - Cabeçalho Authorization não encontrado ou não começa com Bearer
+2024-10-28 00:08:32 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2024-10-28 00:08:32 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing POST /error
+2024-10-28 00:08:32 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2024-10-28 00:08:36 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing POST /graphql
+2024-10-28 00:08:36 [http-nio-8080-exec-7] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.service.CustomUserDetailsService.loadUserByUsername() com argumento[s] = [admin]
+2024-10-28 00:08:36 [http-nio-8080-exec-7] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.repository.UsuarioRepository.findByUsername() com argumento[s] = [admin]
+2024-10-28 00:08:36 [http-nio-8080-exec-7] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.repository.UsuarioRepository.findByUsername() com resultado = Optional[com.example.demo.model.Usuario@3228cab]
+2024-10-28 00:08:36 [http-nio-8080-exec-7] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.service.CustomUserDetailsService.loadUserByUsername() com resultado = com.example.demo.model.Usuario@3228cab
+2024-10-28 00:08:36 [http-nio-8080-exec-7] INFO  c.e.d.s.JwtAuthenticationFilter - Usuário autenticado: admin
+2024-10-28 00:08:36 [http-nio-8080-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured POST /graphql
+2024-10-28 00:08:36 [http-nio-8080-exec-7] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.controller.LivroGraphQLController.listarLivros() com argumento[s] = []
+2024-10-28 00:08:36 [http-nio-8080-exec-7] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.service.LivroService.listarTodos() com argumento[s] = []
+2024-10-28 00:08:36 [http-nio-8080-exec-7] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: org.springframework.data.repository.ListCrudRepository.findAll() com argumento[s] = []
+2024-10-28 00:08:36 [http-nio-8080-exec-7] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: org.springframework.data.repository.ListCrudRepository.findAll() com resultado = [com.example.demo.model.Livro@373af232, com.example.demo.model.Livro@1741ec44]
+2024-10-28 00:08:36 [http-nio-8080-exec-7] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.service.LivroService.listarTodos() com resultado = [com.example.demo.model.Livro@373af232, com.example.demo.model.Livro@1741ec44]
+2024-10-28 00:08:36 [http-nio-8080-exec-7] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.controller.LivroGraphQLController.listarLivros() com resultado = [com.example.demo.model.Livro@373af232, com.example.demo.model.Livro@1741ec44]
+2024-10-28 00:48:36 [main] INFO  c.example.demo.DemoApplicationTests - Starting DemoApplicationTests using Java 21.0.2 with PID 8592 (started by michelle in C:\dev\workspace\eclipse-2023\demo-livro)
+2024-10-28 00:48:36 [main] DEBUG c.example.demo.DemoApplicationTests - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-28 00:48:36 [main] INFO  c.example.demo.DemoApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2024-10-28 00:48:38 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-28 00:48:39 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-28 00:48:39 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-10-28 00:48:39 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-28 00:48:39 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@24b3f778
+2024-10-28 00:48:39 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-28 00:48:41 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-28 00:48:42 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2024-10-28 00:48:42 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-28 00:48:44 [main] DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-10-28 00:48:44 [main] INFO  c.example.demo.DemoApplicationTests - Started DemoApplicationTests in 8.337 seconds (process running for 9.832)
+2024-10-28 00:48:45 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-10-28 00:48:45 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-10-28 00:50:32 [main] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 21.0.2 with PID 23480 (C:\dev\workspace\eclipse-2023\demo-livro\target\classes started by michelle in C:\dev\workspace\eclipse-2023\demo-livro)
+2024-10-28 00:50:32 [main] DEBUG com.example.demo.DemoApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-28 00:50:32 [main] INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-28 00:50:34 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-28 00:50:34 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-28 00:50:34 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-28 00:50:35 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-28 00:50:35 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-28 00:50:35 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-10-28 00:50:35 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-28 00:50:36 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@76134b9b
+2024-10-28 00:50:36 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-28 00:50:37 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-28 00:50:38 [main] DEBUG c.e.d.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2024-10-28 00:50:38 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2024-10-28 00:50:38 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-28 00:50:40 [main] DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-10-28 00:50:40 [main] INFO  com.example.demo.DemoApplication - Started DemoApplication in 9.012 seconds (process running for 9.433)
+2024-10-28 00:52:25 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-28 00:52:26 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/login
+2024-10-28 00:52:26 [http-nio-8080-exec-1] WARN  c.e.d.s.JwtAuthenticationFilter - Cabeçalho Authorization não encontrado ou não começa com Bearer
+2024-10-28 00:52:26 [http-nio-8080-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2024-10-28 00:52:26 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/login
+2024-10-28 00:52:26 [http-nio-8080-exec-1] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.controller.AuthController.login() com argumento[s] = [com.example.demo.controller.AuthController$AuthRequest@4403e404]
+2024-10-28 00:52:26 [http-nio-8080-exec-1] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.service.CustomUserDetailsService.loadUserByUsername() com argumento[s] = [admin]
+2024-10-28 00:52:26 [http-nio-8080-exec-1] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.repository.UsuarioRepository.findByUsername() com argumento[s] = [admin]
+2024-10-28 00:52:26 [http-nio-8080-exec-1] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.repository.UsuarioRepository.findByUsername() com resultado = Optional[com.example.demo.model.Usuario@51c569ea]
+2024-10-28 00:52:26 [http-nio-8080-exec-1] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.service.CustomUserDetailsService.loadUserByUsername() com resultado = com.example.demo.model.Usuario@51c569ea
+2024-10-28 00:52:26 [http-nio-8080-exec-1] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2024-10-28 00:52:26 [http-nio-8080-exec-1] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.repository.UsuarioRepository.findByUsername() com argumento[s] = [admin]
+2024-10-28 00:52:26 [http-nio-8080-exec-1] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.repository.UsuarioRepository.findByUsername() com resultado = Optional[com.example.demo.model.Usuario@51c569ea]
+2024-10-28 00:52:26 [http-nio-8080-exec-1] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.controller.AuthController.login() com resultado = <200 OK OK,com.example.demo.controller.AuthController$AuthResponse@26f039b8,[]>
+2024-10-28 00:52:45 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing POST /graphql
+2024-10-28 00:52:45 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.service.CustomUserDetailsService.loadUserByUsername() com argumento[s] = [admin]
+2024-10-28 00:52:45 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.repository.UsuarioRepository.findByUsername() com argumento[s] = [admin]
+2024-10-28 00:52:45 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.repository.UsuarioRepository.findByUsername() com resultado = Optional[com.example.demo.model.Usuario@1b0e0103]
+2024-10-28 00:52:45 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.service.CustomUserDetailsService.loadUserByUsername() com resultado = com.example.demo.model.Usuario@1b0e0103
+2024-10-28 00:52:45 [http-nio-8080-exec-3] INFO  c.e.d.s.JwtAuthenticationFilter - Usuário autenticado: admin
+2024-10-28 00:52:45 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured POST /graphql
+2024-10-28 00:52:45 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.controller.LivroGraphQLController.listarLivros() com argumento[s] = []
+2024-10-28 00:52:45 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.service.LivroService.listarTodos() com argumento[s] = []
+2024-10-28 00:52:45 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: org.springframework.data.repository.ListCrudRepository.findAll() com argumento[s] = []
+2024-10-28 00:52:45 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: org.springframework.data.repository.ListCrudRepository.findAll() com resultado = [com.example.demo.model.Livro@1283bd53, com.example.demo.model.Livro@33ca8d27]
+2024-10-28 00:52:45 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.service.LivroService.listarTodos() com resultado = [com.example.demo.model.Livro@1283bd53, com.example.demo.model.Livro@33ca8d27]
+2024-10-28 00:52:45 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.controller.LivroGraphQLController.listarLivros() com resultado = [com.example.demo.model.Livro@1283bd53, com.example.demo.model.Livro@33ca8d27]
+2024-10-28 01:02:32 [main] INFO  c.example.demo.DemoApplicationTests - Starting DemoApplicationTests using Java 21.0.2 with PID 11952 (started by michelle in C:\dev\workspace\eclipse-2023\demo-livro)
+2024-10-28 01:02:32 [main] DEBUG c.example.demo.DemoApplicationTests - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-28 01:02:32 [main] INFO  c.example.demo.DemoApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2024-10-28 01:02:34 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-28 01:02:34 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-28 01:02:34 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-10-28 01:02:35 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-28 01:02:35 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@25216999
+2024-10-28 01:02:35 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-28 01:02:36 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-28 01:02:38 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2024-10-28 01:02:38 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-28 01:02:40 [main] DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-10-28 01:02:40 [main] INFO  c.example.demo.DemoApplicationTests - Started DemoApplicationTests in 8.912 seconds (process running for 10.217)
+2024-10-28 01:02:41 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-10-28 01:02:41 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-10-28 01:06:13 [main] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 21.0.2 with PID 42380 (C:\dev\workspace\eclipse-2023\demo-livro\target\classes started by michelle in C:\dev\workspace\eclipse-2023\demo-livro)
+2024-10-28 01:06:13 [main] DEBUG com.example.demo.DemoApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-28 01:06:13 [main] INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-28 01:06:15 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-28 01:06:15 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-28 01:06:15 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-28 01:06:16 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-28 01:06:16 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-28 01:06:16 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-10-28 01:06:17 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-28 01:06:17 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@165aa43a
+2024-10-28 01:06:17 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-28 01:06:19 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-28 01:06:20 [main] DEBUG c.e.d.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2024-10-28 01:06:20 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2024-10-28 01:06:20 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-28 01:06:22 [main] DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-10-28 01:06:23 [main] INFO  com.example.demo.DemoApplication - Started DemoApplication in 10.38 seconds (process running for 10.836)
+2024-10-28 01:07:28 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-28 01:07:28 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/login
+2024-10-28 01:07:28 [http-nio-8080-exec-2] WARN  c.e.d.s.JwtAuthenticationFilter - Cabeçalho Authorization não encontrado ou não começa com Bearer
+2024-10-28 01:07:28 [http-nio-8080-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2024-10-28 01:07:28 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/login
+2024-10-28 01:07:28 [http-nio-8080-exec-2] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.controller.AuthController.login() com argumento[s] = [com.example.demo.controller.AuthController$AuthRequest@39e47be9]
+2024-10-28 01:07:28 [http-nio-8080-exec-2] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.service.CustomUserDetailsService.loadUserByUsername() com argumento[s] = [admin]
+2024-10-28 01:07:28 [http-nio-8080-exec-2] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.repository.UsuarioRepository.findByUsername() com argumento[s] = [admin]
+2024-10-28 01:07:29 [http-nio-8080-exec-2] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.repository.UsuarioRepository.findByUsername() com resultado = Optional[com.example.demo.model.Usuario@1024cda0]
+2024-10-28 01:07:29 [http-nio-8080-exec-2] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.service.CustomUserDetailsService.loadUserByUsername() com resultado = com.example.demo.model.Usuario@1024cda0
+2024-10-28 01:07:29 [http-nio-8080-exec-2] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2024-10-28 01:07:29 [http-nio-8080-exec-2] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.repository.UsuarioRepository.findByUsername() com argumento[s] = [admin]
+2024-10-28 01:07:29 [http-nio-8080-exec-2] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.repository.UsuarioRepository.findByUsername() com resultado = Optional[com.example.demo.model.Usuario@1024cda0]
+2024-10-28 01:07:29 [http-nio-8080-exec-2] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.controller.AuthController.login() com resultado = <200 OK OK,com.example.demo.controller.AuthController$AuthResponse@330c45b9,[]>
+2024-10-28 01:07:55 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing POST /graphql
+2024-10-28 01:07:55 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.service.CustomUserDetailsService.loadUserByUsername() com argumento[s] = [admin]
+2024-10-28 01:07:55 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.repository.UsuarioRepository.findByUsername() com argumento[s] = [admin]
+2024-10-28 01:07:55 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.repository.UsuarioRepository.findByUsername() com resultado = Optional[com.example.demo.model.Usuario@3d5e47d7]
+2024-10-28 01:07:55 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.service.CustomUserDetailsService.loadUserByUsername() com resultado = com.example.demo.model.Usuario@3d5e47d7
+2024-10-28 01:07:55 [http-nio-8080-exec-3] INFO  c.e.d.s.JwtAuthenticationFilter - Usuário autenticado: admin
+2024-10-28 01:07:55 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured POST /graphql
+2024-10-28 01:07:55 [http-nio-8080-exec-3] DEBUG o.s.s.a.m.AuthorizationManagerBeforeMethodInterceptor - Authorizing method invocation ReflectiveMethodInvocation: public java.util.List com.example.demo.controller.LivroGraphQLController.listarLivros(); target is of class [com.example.demo.controller.LivroGraphQLController]
+2024-10-28 01:07:55 [http-nio-8080-exec-3] DEBUG o.s.s.a.m.AuthorizationManagerBeforeMethodInterceptor - Authorized method invocation ReflectiveMethodInvocation: public java.util.List com.example.demo.controller.LivroGraphQLController.listarLivros(); target is of class [com.example.demo.controller.LivroGraphQLController]
+2024-10-28 01:07:55 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.controller.LivroGraphQLController.listarLivros() com argumento[s] = []
+2024-10-28 01:07:55 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: com.example.demo.service.LivroService.listarTodos() com argumento[s] = []
+2024-10-28 01:07:55 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Entrando: org.springframework.data.repository.ListCrudRepository.findAll() com argumento[s] = []
+2024-10-28 01:07:55 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: org.springframework.data.repository.ListCrudRepository.findAll() com resultado = [com.example.demo.model.Livro@10be364a, com.example.demo.model.Livro@31d05ba2]
+2024-10-28 01:07:55 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.service.LivroService.listarTodos() com resultado = [com.example.demo.model.Livro@10be364a, com.example.demo.model.Livro@31d05ba2]
+2024-10-28 01:07:55 [http-nio-8080-exec-3] DEBUG c.example.demo.aspect.LoggingAspect - Saindo: com.example.demo.controller.LivroGraphQLController.listarLivros() com resultado = [com.example.demo.model.Livro@10be364a, com.example.demo.model.Livro@31d05ba2]

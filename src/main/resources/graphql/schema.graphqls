@@ -1,0 +1,16 @@
+type Livro {
+  id: ID!
+  titulo: String
+  autor: String
+}
+
+type Query {
+  listarLivros: [Livro]
+  buscarLivroPorId(id: ID!): Livro
+}
+
+type Mutation {
+  cadastrarLivro(titulo: String!, autor: String!): Livro
+  atualizarLivro(id: ID!, titulo: String, autor: String): Livro
+  deletarLivro(id: ID!): Boolean
+}

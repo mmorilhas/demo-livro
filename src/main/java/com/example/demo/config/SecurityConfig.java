@@ -26,6 +26,7 @@ public class SecurityConfig {
         this.jwtAuthenticationFilter = jwtAuthenticationFilter;
     }
 
+    
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
@@ -39,6 +40,8 @@ public class SecurityConfig {
             .authorizeHttpRequests(authorize -> authorize
                 // Permite acesso sem autenticação aos endpoints de autenticação
                 .requestMatchers("/auth/**").permitAll()
+                .requestMatchers("/graphiql").permitAll()
+                .requestMatchers("/graphql").authenticated()
                 // Exige autenticação para qualquer outra requisição
                 .anyRequest().authenticated()
             )
