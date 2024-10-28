@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
+import org.springframework.graphql.data.method.annotation.SchemaMapping;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 
@@ -36,10 +37,11 @@ public class LivroGraphQLController {
 
 	@MutationMapping
 	@PreAuthorize("hasAuthority('ADMIN')")
-	public Livro criarLivro(@Argument String titulo, @Argument String autor) {
+	public Livro cadastrarLivro(@Argument String titulo, @Argument String autor) {
 		Livro livro = new Livro();
 		livro.setTitulo(titulo);
 		livro.setAutor(autor);
+
 		return livroService.salvar(livro);
 	}
 

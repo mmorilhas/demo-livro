@@ -19,49 +19,45 @@ import jakarta.servlet.http.HttpServletResponse;
 @EnableMethodSecurity(prePostEnabled = true)
 public class SecurityConfig {
 
-    private final JwtAuthenticationFilter jwtAuthenticationFilter;
+	private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
-    @Autowired
-    public SecurityConfig(JwtAuthenticationFilter jwtAuthenticationFilter) {
-        this.jwtAuthenticationFilter = jwtAuthenticationFilter;
-    }
+	@Autowired
+	public SecurityConfig(JwtAuthenticationFilter jwtAuthenticationFilter) {
+		this.jwtAuthenticationFilter = jwtAuthenticationFilter;
+	}
 
-    
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http
-            // Desativa o CSRF (não necessário para APIs RESTful)
-            .csrf(csrf -> csrf.disable())
+	@Bean
+	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+		http
+				// Desativa o CSRF (não necessário para APIs RESTful)
+				.csrf(csrf -> csrf.disable())
 
-            // Define a política de gerenciamento de sessões como Stateless
-            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+				// Define a política de gerenciamento de sessões como Stateless
+				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 
-            // Configura as regras de autorização
-            .authorizeHttpRequests(authorize -> authorize
-                // Permite acesso sem autenticação aos endpoints de autenticação
-                .requestMatchers("/auth/**").permitAll()
-                .requestMatchers("/graphiql").permitAll()
-                .requestMatchers("/graphql").authenticated()
-                // Exige autenticação para qualquer outra requisição
-                .anyRequest().authenticated()
-            )
+				// Configura as regras de autorização
+				.authorizeHttpRequests(authorize -> authorize
+						// Permite acesso sem autenticação aos endpoints de autenticação
+						.requestMatchers("/auth/**").permitAll().requestMatchers("/graphiql").permitAll()
+						.requestMatchers("/graphql").authenticated()
+						// Exige autenticação para qualquer outra requisição
+						.anyRequest().authenticated())
 
-            // Configura o tratamento de exceções
-            .exceptionHandling(exception -> exception
-                .authenticationEntryPoint((request, response, authException) ->
-                    response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Acesso não autorizado")
-                )
-            )
+				// Configura o tratamento de exceções
+				.exceptionHandling(
+						exception -> exception.authenticationEntryPoint((request, response, authException) -> response
+								.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Acesso não autorizado")))
 
-            // Adiciona o filtro JWT antes do filtro de autenticação padrão
-            .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+				// Adiciona o filtro JWT antes do filtro de autenticação padrão
+				.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
-        return http.build();
-    }
+		return http.build();
+	}
 
-    // Bean para o AuthenticationManager
-    @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
-        return authenticationConfiguration.getAuthenticationManager();
-    }
+	// Bean para o AuthenticationManager
+	@Bean
+	public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)
+			throws Exception {
+		return authenticationConfiguration.getAuthenticationManager();
+	}
 }
