@@ -15,48 +15,47 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.dto.LivroDTO;
-import com.example.demo.model.Livro;
-import com.example.demo.service.LivroService;
+import com.example.demo.model.Autor;
+import com.example.demo.service.AutorService;
 
 @RestController
-@RequestMapping("/livros")
-public class LivroController {
+@RequestMapping("/autor")
+public class AutorController {
 
-	private final LivroService service;
+	private final AutorService service;
 
 	@Autowired
-	public LivroController(LivroService livroService) {
-		this.service = livroService;
+	public AutorController(AutorService service) {
+		this.service = service;
 	}
 
 	@GetMapping("/listar")
 	@PreAuthorize("hasAnyAuthority('CLIENTE', 'ADMIN')")
-	public ResponseEntity<List<LivroDTO>> listarTodos() {
+	public ResponseEntity<List<Autor>> listarTodos() {
 
 		return ResponseEntity.status(HttpStatus.OK).body(service.listarTodos());
 	}
 
-	@GetMapping("/buscar/{id}")
+	@GetMapping("/buscar/{nome}")
 	@PreAuthorize("hasAnyAuthority('CLIENTE', 'ADMIN')")
-	public ResponseEntity<Livro> buscarPorId(@PathVariable Long id) {
-		return ResponseEntity.ok(service.buscarPorId(id));
+	public ResponseEntity<Autor> buscarPorId(@PathVariable String nome) {
+		return ResponseEntity.ok(service.buscarPorNome(nome));
 	}
 
 	@PostMapping("/cadastrar")
 	@PreAuthorize("hasAuthority('ADMIN')")
-	public ResponseEntity<Livro> cadastrar(@RequestBody Livro livro) {
+	public ResponseEntity<Autor> cadastrar(@RequestBody Autor autor) {
 
-		service.salvar(livro);
+		service.salvar(autor);
 
 		return ResponseEntity.status(HttpStatus.CREATED).build();
 	}
 
 	@PutMapping("/atualizar/{id}")
 	@PreAuthorize("hasAuthority('ADMIN')")
-	public ResponseEntity<Livro> atualizar(@PathVariable Long id, @RequestBody Livro livro) {
+	public ResponseEntity<Autor> atualizar(@PathVariable Long id, @RequestBody Autor autor) {
 
-		return ResponseEntity.ok(service.atualizar(id, livro));
+		return ResponseEntity.ok(service.atualizar(id, autor));
 	}
 
 	@DeleteMapping("/deletar/{id}")

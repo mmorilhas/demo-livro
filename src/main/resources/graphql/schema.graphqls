@@ -1,16 +1,55 @@
 type Livro {
   id: ID!
   titulo: String
-  autor: String
+  autores: [Autor]
+  genero: Genero
+}
+
+type Autor {
+  id: ID!
+  nome: String
+  biografia: String
+}
+
+type Genero {
+  id: ID!
+  nome: String
 }
 
 type Query {
   listarLivros: [Livro]
   buscarLivroPorId(id: ID!): Livro
+  listarAutores: [Autor]
+  buscarAutorPorNome(nome: String): Autor
+  listarGeneros: [Genero]
+  buscarGeneroPorNome(nome: String): Genero
 }
 
 type Mutation {
-  cadastrarLivro(titulo: String!, autor: String!): Livro
-  atualizarLivro(id: ID!, titulo: String, autor: String): Livro
+  # Cadastro de um novo livro com os campos específicos
+  cadastrarLivro(titulo: String!, autoresNomes: [String!], generoNome: String): Livro
+  
+  # Atualização de um livro existente com base no ID
+  atualizarLivro(id: ID!, titulo: String, autoresNomes: [String!], generoNome: String): Livro
+  
+  # Deletar um livro com base no ID
   deletarLivro(id: ID!): Boolean
+
+  # Cadastro de um novo autor com nome e biografia
+  cadastrarAutor(nome: String!, biografia: String): Autor
+  
+  # Atualização de um autor com base no ID
+  atualizarAutor(id: ID!, nome: String, biografia: String): Autor
+  
+  # Deletar um autor com base no ID
+  deletarAutor(id: ID!): Boolean
+
+  # Cadastro de um novo gênero com o nome
+  cadastrarGenero(nome: String!): Genero
+  
+  # Atualização de um gênero existente com base no ID
+  atualizarGenero(id: ID!, nome: String): Genero
+  
+  # Deletar um gênero com base no ID
+  deletarGenero(id: ID!): Boolean
 }

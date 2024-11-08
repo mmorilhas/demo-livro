@@ -15,48 +15,48 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.dto.LivroDTO;
+import com.example.demo.model.Genero;
 import com.example.demo.model.Livro;
-import com.example.demo.service.LivroService;
+import com.example.demo.service.GeneroService;
 
 @RestController
-@RequestMapping("/livros")
-public class LivroController {
+@RequestMapping("/genero")
+public class GeneroController {
 
-	private final LivroService service;
+	private final GeneroService service;
 
 	@Autowired
-	public LivroController(LivroService livroService) {
-		this.service = livroService;
+	public GeneroController(GeneroService service) {
+		this.service = service;
 	}
 
 	@GetMapping("/listar")
 	@PreAuthorize("hasAnyAuthority('CLIENTE', 'ADMIN')")
-	public ResponseEntity<List<LivroDTO>> listarTodos() {
+	public ResponseEntity<List<Genero>> listarTodos() {
 
 		return ResponseEntity.status(HttpStatus.OK).body(service.listarTodos());
 	}
 
-	@GetMapping("/buscar/{id}")
+	@GetMapping("/buscar/{nome}")
 	@PreAuthorize("hasAnyAuthority('CLIENTE', 'ADMIN')")
-	public ResponseEntity<Livro> buscarPorId(@PathVariable Long id) {
-		return ResponseEntity.ok(service.buscarPorId(id));
+	public ResponseEntity<Genero> buscarPorId(@PathVariable String nome) {
+		return ResponseEntity.ok(service.buscarPorNome(nome));
 	}
 
 	@PostMapping("/cadastrar")
 	@PreAuthorize("hasAuthority('ADMIN')")
-	public ResponseEntity<Livro> cadastrar(@RequestBody Livro livro) {
+	public ResponseEntity<Genero> cadastrar(@RequestBody Genero genero) {
 
-		service.salvar(livro);
+		service.salvar(genero);
 
 		return ResponseEntity.status(HttpStatus.CREATED).build();
 	}
 
 	@PutMapping("/atualizar/{id}")
 	@PreAuthorize("hasAuthority('ADMIN')")
-	public ResponseEntity<Livro> atualizar(@PathVariable Long id, @RequestBody Livro livro) {
+	public ResponseEntity<Genero> atualizar(@PathVariable Long id, @RequestBody Genero genero) {
 
-		return ResponseEntity.ok(service.atualizar(id, livro));
+		return ResponseEntity.ok(service.atualizar(id, genero));
 	}
 
 	@DeleteMapping("/deletar/{id}")
