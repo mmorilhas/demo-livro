@@ -15,7 +15,10 @@ public class Autor {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "pk_autor")
 	private Long id;
+	
 	private String nome;
+	
+	@Column(length = 1000)
 	private String biografia;
 
 	public Long getId() {
